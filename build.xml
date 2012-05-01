@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  In essence, this is a normal ant script but the directory under inspection is the wp-content
+  directory. We're not analysing any other directories because these are provided by WordPress.
+ -->
+
+<project name="WP Features" default="build">
+  
+  <property name="wp" location="wordpress" />
+  <property name="src" location="${wp}/wp-content" />
+  <property name="vinur" location="${wp}/wp-content/themes/vinur" />
+  <property name="build" location="build" />
+  
+  <property name="child_theme_name" value="vinur_child" />
+  
+  <!-- 
+    Variables for the theme tester task
+    TODO: automate setting this.
+  -->
+  <property name="test_user" value="theme_tester" />
+  <property name="test_pass" value="theme_tester" />
+  <property name="test_db" value="wp_theme_test" />
+  
+  <!-- Creates the base branches used for deployment -->
+  <target name="branchsetup">
+    <exec executable="git">
+      <arg value="branch" />
+      <arg value="staging" />
+    </exec>
+    <exec executable="git">
+      <arg value="branch" />
+      <arg value="approval" />
+    </exec>
+    <exec executable="git">
+      <arg value="branch" />
+      <arg value="production" />
+    </exec>
+  </target>
+  
+  <!-- The main test, analyse and report task -->
+  <target name="build" depends="lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpdox,phpcb,test" />
+  <!-- The theme tests, analyse and report task -->
+  <target name="build_theme" depends="lint_theme,phploc_theme,pdepend_theme,phpmd-ci_theme,phpcs-ci_theme,phpcpd_theme,phpdox_theme,phpcb_theme,test_theme" />
+   
+  <!-- Runs a syntax check on all the php files -->
+  <target name="lint">
+    <apply executable="php" failonerror="true">
+    <arg value="-l" />
+    
+    <!-- We don't need a lint of WP, so we're limiting `php -l` to the wp-content plugin -->
+    <fileset dir="${src}">
+      <include name="**/*.php" />
+      <modified />
+    </fileset>
+
+    </apply>
+  </target>
+  
+  <target name="phploc" description="Measure project size using PHPLOC">
+    <exec executable="phploc">
+      <arg value="--log-csv" />
+      <arg value="${basedir}/build/logs/phploc.csv" />
+      <arg value="--exclude" />
+      <arg value="${basedir}/build" />
+      <arg path="${src}" />
+    </exec>
+  </target>
+ 
+  <target name="pdepend" description="Calculate software metrics using PHP_Depend">
+    <exec executable="pdepend">
+      <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
+      <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
+      <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
+      <arg path="${src}" />
+    </exec>
+  </target>
+  
+  <target name="phpmd" description="Perform project mess detection using PHPMD">
+    <exec executable="phpmd">
+      <arg path="${src}" />
+      <arg value="text" />
+      <arg value="${basedir}/build/phpmd.xml" />
+    </exec>
+  </target>
+
+  <target name="phpmd-ci" description="Perform project mess detection using PHPMD">
+    <exec executable="phpmd">
+      <arg path="${src}" />
+      <arg value="xml" />
+      <arg value="${basedir}/build/phpmd.xml" />
+      <arg value="--reportfile" />
+      <arg value="${basedir}/build/logs/pmd.xml" />
+    </exec>
+  </target>
+  
+  <target name="phpcs" description="Find coding standard violations using PHP_CodeSniffer">
+    <exec executable="phpcs">
+      <arg value="--standard=wordpress" />
+      <arg path="${src}" />
+    </exec>
+  </target>
+
+  <target name="phpcs-ci" description="Find coding standard violations using PHP_CodeSniffer">
+    <exec executable="phpcs" output="/dev/null">
+      <arg value="--report=checkstyle" />
+      <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+      <arg value="--standard=wordpress" />
+      <arg value="--ignore=autoload.php" />
+      <arg path="${src}" />
+    </exec>
+  </target>
+  
+  <target name="phpcpd" description="Find duplicate code using PHPCPD">
+    <exec executable="phpcpd">
+      <arg value="--log-pmd" />
+      <arg value="${basedir}/build/logs/pmd-cpd.xml" />
+      <arg value="--exclude" />
+      <arg value="${basedir}/build" />
+      <arg path="${src}" />
+    </exec>
+  </target>
+
+  <target name="phpdox" description="Generate API documentation using phpDox">
+    <exec executable="phpdox"/>
+  </target>
+  
+  <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
+    <exec executable="phpcb">
+      <arg value="--log" />
+      <arg path="${basedir}/build/logs" />
+      <arg value="--source" />
+      <arg path="${src}" />
+      <arg value="--output" />
+      <arg path="${basedir}/build/code-browser" />
+    </exec>
+  </target>
+  
+  <target name="test">
+    <exec executable="cucumber">
+      <!-- Set output to jUnit -->
+      <arg value="--format" />
+      <arg value="junit" />
+      <!-- Set output file directory -->
+      <arg value="--out" />
+      <arg value="${basedir}/build/logs" />
+      <!-- Feature directory -->
+      <arg value="tests" />
+    </exec>
+  </target>
+  
+  <target name="test_theme" description="Tests Vinur, the parent theme">
+    <!-- Rename the current wp-config to a backup file -->
+    <move file="${wp}/wp-config.php" tofile="${wp}/wp-config.php.bak"/>
+    
+    <!-- Rename the test wp-config to wp-config.php -->
+    <move file="${wp}/wp-config.test.php" tofile="${wp}/wp-config.php"/>
+    
+    <!-- Run the tests -->
+    <exec executable="cucumber">
+      <!-- Set output to jUnit -->
+      <arg value="--format" />
+      <arg value="junit" />
+      <!-- Set output file directory -->
+      <arg value="--out" />
+      <arg value="${basedir}/build/theme/logs" />
+      <!-- Feature directory -->
+      <arg value="tests/vinur" />
+    </exec>
+    
+    <!-- Rename the test wp-config back to wp-config.test.php -->
+    <move file="${wp}/wp-config.php" tofile="${wp}/wp-config.test.php"/>
+    
+    <!-- Rename the backup of wp-config back to its original state -->
+    <move file="${wp}/wp-config.php.bak" tofile="${wp}/wp-config.php"/>
+  </target>
+  
+  <!-- Runs a syntax check on all the php files -->
+  <target name="lint_theme">
+    <apply executable="php" failonerror="true">
+    <arg value="-l" />
+    
+    <!-- We don't need a lint of WP, so we're limiting `php -l` to the wp-content plugin -->
+    <fileset dir="${vinur}">
+      <include name="**/*.php" />
+      <modified />
+    </fileset>
+
+    </apply>
+  </target>
+  
+  <target name="phploc_theme" description="Measure project size using PHPLOC">
+    <exec executable="phploc">
+      <arg value="--log-csv" />
+      <arg value="${basedir}/build/theme/logs/phploc.csv" />
+      <arg value="--exclude" />
+      <arg value="${basedir}/build/theme" />
+      <arg path="${vinur}" />
+    </exec>
+  </target>
+ 
+  <target name="pdepend_theme" description="Calculate software metrics using PHP_Depend">
+    <exec executable="pdepend">
+      <arg value="--jdepend-xml=${basedir}/build/theme/logs/jdepend.xml" />
+      <arg value="--jdepend-chart=${basedir}/build/theme/pdepend/dependencies.svg" />
+      <arg value="--overview-pyramid=${basedir}/build/theme/pdepend/overview-pyramid.svg" />
+      <arg path="${vinur}" />
+    </exec>
+  </target>
+
+  <target name="phpmd-ci_theme" description="Perform project mess detection using PHPMD">
+    <exec executable="phpmd">
+      <arg path="${vinur}" />
+      <arg value="xml" />
+      <arg value="${basedir}/build/phpmd.xml" />
+      <arg value="--reportfile" />
+      <arg value="${basedir}/build/theme/logs/pmd.xml" />
+    </exec>
+  </target>
+
+  <target name="phpcs-ci_theme" description="Find coding standard violations using PHP_CodeSniffer">
+    <exec executable="phpcs" output="/dev/null">
+      <arg value="--report=checkstyle" />
+      <arg value="--report-file=${basedir}/build/theme/logs/checkstyle.xml" />
+      <arg value="--standard=wordpress" />
+      <arg value="--ignore=autoload.php" />
+      <arg path="${vinur}" />
+    </exec>
+  </target>
+  
+  <target name="phpcpd_theme" description="Find duplicate code using PHPCPD">
+    <exec executable="phpcpd">
+      <arg value="--log-pmd" />
+      <arg value="${basedir}/build/theme/logs/pmd-cpd.xml" />
+      <arg value="--exclude" />
+      <arg value="${basedir}/build/theme" />
+      <arg path="${vinur}" />
+    </exec>
+  </target>
+
+  <target name="phpdox_theme" description="Generate API documentation using phpDox">
+    <exec executable="phpdox"/>
+  </target>
+  
+  <target name="phpcb_theme" description="Aggregate tool output with PHP_CodeBrowser">
+    <exec executable="phpcb">
+      <arg value="--log" />
+      <arg path="${basedir}/build/theme/logs" />
+      <arg value="--source" />
+      <arg path="${vinur}" />
+      <arg value="--output" />
+      <arg path="${basedir}/build/theme/code-browser" />
+    </exec>
+  </target>
+
+  <target name="install_wp_cli" description="Installs the wp-cli tool">
+    <!-- Activate pear auto-discover -->
+    <exec executable="pear">
+      <arg value="config-set" />
+      <arg value="auto_discover" />
+      <arg value="1" />
+    </exec>
+
+    <!-- Install wp-cli with PEAR -->
+    <exec executable="sudo">
+      <arg value="pear" />
+      <arg value="install" />
+      <arg value="andreascreten.github.com/wp-cli/wpcli" />
+    </exec>
+  </target>
+
+  <!--
+    For the create_child_theme task,
+    make sure you have child_theme_name set to the name of your child theme.
+  -->
+  <target name="create_child_theme" description="Creates a default Vinur child theme">
+    <!-- Copy child_theme template theme -->
+    <mkdir dir="${src}/themes/${child_theme_name}" />
+
+    <!-- Create the style.css file -->
+    <touch file="${src}/themes/${child_theme_name}/style.css" />
+
+    <!-- Replace template child theme name to actual child_theme_name -->
+    <exec executable="sed" output="${src}/themes/${child_theme_name}/style.css" failonerror="true">
+      <!-- Dividing sed arguments into <arg> seems to break sed. Poor sed. -->
+      <arg line='"s/%child_theme_name%/${child_theme_name}/g" task_template/child_theme/style.css' />
+    </exec>
+
+    <!-- Activate the child theme -->
+    <exec executable="wp" dir="${wp}">
+      <arg value="theme" />
+      <arg value="activate" />
+      <arg value="${child_theme_name}" />
+    </exec>
+  </target>
+  
+  <!-- Sets up the local database with the given user -->
+  <target name="setup_local_db" description="Creates a local db based on the ant.properties configuration">
+    <!-- Load the configuration file -->
+    <loadproperties srcFile="config/ant.properties"/>
+    
+    <!-- Create the database, create the user and grant access to that db. -->
+    <!-- TODO: It's a bit messy. Simplify, or go more verbosely. -->
+    <exec executable="mysql" inputstring="CREATE DATABASE ${db.name}; CREATE USER '${db.user}'@'${db.host}' IDENTIFIED BY '${db.pass}'; GRANT ALL ON ${db.name}.* TO '${db.user}'@'${db.host}';">
+      <arg value="--user=${db.root_user}" />  
+      <arg value="--password=${db.root_pass}" />  
+      <arg value="--host=${db.host}" />  
+      <arg value="--port=${db.port}" />  
+    </exec>
+  </target>
+  
+  <!-- Set up the wp-config.php, linked to the database of ant.properties -->
+  <target name="setup_wp_config" description="Creates or overrides the wp-config.php, with local db setup">
+    <!-- Load the configuration file -->
+    <loadproperties srcFile="config/ant.properties"/>
+    
+    <!-- Create the wp-config.php file -->
+    <touch file="${wp}/wp-config.php" />
+    
+    <!-- Output the correct config into the config file -->
+    <exec executable="sed" output="${wp}/wp-config.php" failonerror="true">
+      <arg line="-e 's/%db_name%/${db.name}/g'" />
+      <arg line="-e 's/%db_user%/${db.user}/g'" />
+      <arg line="-e 's/%db_pass%/${db.pass}/g'" />
+      <arg line="-e 's/%db_host%/${db.host}/g'" />
+      <arg line="-e 's/%db_prefix%/${wp.db_prefix}/g'" />
+      <arg value="task_template/setup/wp-config.php" />
+    </exec>
+  </target>
+  
+  <!-- Installs WordPress with wp-cli -->
+  <target name="install_wp">
+    <loadproperties srcFile="config/ant.properties"/>
+    <exec executable="wp" dir="${wp}">
+      <arg value="core" />
+      <arg value="install" />
+      <arg value="--site_url=${host.url}" />
+      <arg value="--site_title=${wp.site_title}" />
+      <arg value="--admin_email=${wp.admin_email}" />
+      <arg value="--admin_password=${wp.admin_pass}" />
+    </exec>
+  </target>
+  
+  <!-- Sets up the local domain with quickhost -->
+  <target name="setup_domain" description="Creates the local virtualhost domain">
+    <loadproperties srcFile="config/ant.properties"/>
+    <exec executable="quickhost" dir="${wp}" failonerror="true">
+      <arg value="${host.url}" />
+    </exec>
+  </target>
+  
+  <!-- 
+      ================
+      Aggregated tasks
+      ================
+   -->
+
+  <!-- Sets up the wordpress installation, without actually installing WordPress. -->
+  <target name="setup" depends="setup_domain,setup_local_db,setup_wp_config" />
+
+  <!-- Sets up and installs the wordpress installation -->
+  <target name="install" depends="setup,install_wp" />
+
+  <!-- Sets up and installs the wordpress installation. Afterwards, activates and creates a child theme. -->
+  <!-- This task should be commonly run when starting a new project. -->
+  <target name="install_new" depends="install,create_child_theme" />
+  
+</project>

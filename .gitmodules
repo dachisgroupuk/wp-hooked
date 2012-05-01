@@ -1,0 +1,3 @@
+[submodule "wordpress/wp-content/themes/vinur"]
+	path = wordpress/wp-content/themes/vinur
+	url = git@github.com:headshift/vinur.git

@@ -1,0 +1,5 @@
+default:
+  base_url: http://wp.test.me
+  db_name: wp_test
+  db_user: wp_tester
+  dp_pass: test123

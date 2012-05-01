@@ -1,0 +1,61 @@
+@font-face {
+	font-family: 'SquareSerifBook';
+	src: url('../fonts/SquareSerif-Book-webfont.eot');
+	src: url('../fonts/SquareSerif-Book-webfont.eot?iefix') format('eot'),
+	url('../fonts/SquareSerif-Book-webfont.woff') format('woff'),
+	url('../fonts/SquareSerif-Book-webfont.ttf') format('truetype'),
+	url('../fonts/SquareSerif-Book-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'SquareSerifBookItalic';
+	src: url('../fonts/SquareSerif-BookItalic-webfont.eot');
+	src: url('../fonts/SquareSerif-BookItalic-webfont.eot?iefix') format('eot'),
+	url('../fonts/SquareSerif-BookItalic-webfont.woff') format('woff'),
+	url('../fonts/SquareSerif-BookItalic-webfont.ttf') format('truetype'),
+	url('../fonts/SquareSerif-BookItalic-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'SquareSerifMedium';
+	src: url('../fonts/SquareSerif-Medium-webfont.eot');
+	src: url('../fonts/SquareSerif-Medium-webfont.eot?iefix') format('eot'),
+	url('../fonts/SquareSerif-Medium-webfont.woff') format('woff'),
+	url('../fonts/SquareSerif-Medium-webfont.ttf') format('truetype'),
+	url('../fonts/SquareSerif-Medium-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SquareSerifDemi';
+	src: url('../fonts/SquareSerif-Demi-webfont.eot');
+	src: url('../fonts/SquareSerif-Demi-webfont.eot?iefix') format('eot'),
+	url('../fonts/SquareSerif-Demi-webfont.woff') format('woff'),
+	url('../fonts/SquareSerif-Demi-webfont.ttf') format('truetype'),
+	url('../fonts/SquareSerif-Demi-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'SquareSerifLight';
+	src: url('../fonts/SquareSerif-Light-webfont.eot');
+	src: url('../fonts/SquareSerif-Light-webfont.eot?iefix') format('eot'),
+	url('../fonts/SquareSerif-Light-webfont.woff') format('woff'),
+	url('../fonts/SquareSerif-Light-webfont.ttf') format('truetype'),
+	url('../fonts/SquareSerif-Light-webfont.svg#webfontvXhP2W8a') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'SquareSerifBold';
+	src: url('../fonts/SquareSerif-Bold-webfont.eot');
+	src: url('../fonts/SquareSerif-Bold-webfont.eot?iefix') format('eot'),
+	url('../fonts/SquareSerif-Bold-webfont.woff') format('woff'),
+	url('../fonts/SquareSerif-Bold-webfont.ttf') format('truetype'),
+	url('../fonts/SquareSerif-Bold-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

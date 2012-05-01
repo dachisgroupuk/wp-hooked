@@ -1,0 +1,8 @@
+/*
+Theme Name: %child_theme_name%
+Description: Child theme for the vinur theme 
+Author: Dachis Group
+Template: vinur
+*/
+
+@import url("../vinur/style.css");

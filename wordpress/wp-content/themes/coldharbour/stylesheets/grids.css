@@ -1,0 +1,208 @@
+/*
+* Responsive grids based on 960.gs
+*/
+
+/* RRRAAAARRRRRR MAKE IT FLUID! */
+
+/* Table of Contents
+==================================================
+    #Base 960 Grid
+    #Tablet (Portrait)
+    #Mobile (Portrait)
+    #Mobile (Landscape)
+    #Clearing */
+
+
+
+/* #Base 960 Grid
+================================================== */
+	.container {
+		position: relative;
+		width: 100%;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0;
+	}
+	.column, .columns {
+		float: left;
+		display: inline;
+		margin-left: 1.041666666667%; /* 10px/960px */
+		margin-right: 1.041666666667%; /* 10px/960px */
+	}
+    .row                                        { margin-bottom: 20px; }
+
+    /* Nested Column Classes */
+    .column.alpha, .columns.alpha               { margin-left: 0; }
+    .column.omega, .columns.omega               { margin-right: 0; }
+
+    /* Base Grid */
+	.container .one.column                      { width: 4.166666666666666666%;  /* 40px/960px */}
+	.container .two.columns                     { width: 10.416666666666666666%; /* 100px/960px */}
+	.container .three.columns                   { width: 16.666666666666666666%; /* 160px/960px */}
+	.container .four.columns                    { width: 22.916666666666666666%; /* 220px/960px */}
+	.container .five.columns                    { width: 29.166666666666666666%; /* 280px/960px */}
+	.container .six.columns                     { width: 35.416666666666666666%; /* 340px/960px */}
+	.container .seven.columns                   { width: 41.666666666666666666%; /* 400px/960px */}
+	.container .eight.columns                   { width: 47.916666666666666666%; /* 460px/960px */}
+	.container .nine.columns                    { width: 54.166666666666666666%; /* 520px/960px */}
+	.container .ten.columns                     { width: 60.416666666666666666%; /* 580px/960px */}
+	.container .eleven.columns                  { width: 66.666666666666666666%; /* 640px/960px */}
+	.container .twelve.columns                  { width: 72.916666666666666666%; /* 700px/960px */}
+	.container .thirteen.columns                { width: 79.166666666666666666%; /* 760px/960px */}
+	.container .fourteen.columns                { width: 85.416666666666666666%; /* 820px/960px */}
+	.container .fifteen.columns                 { width: 91.666666666666666666%; /* 880px/960px */}
+	.container .sixteen.columns                 { width: 97.916666666666666666%; /* 940px/960px */}
+                                                        
+	.container .one-third.column                { width: 18.75%; /* 180px/960px */}
+	.container .two-thirds.column               { width: 64.583333333333333333%; /* 620px/960px */}
+
+
+/* #Tablet (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 768px */
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+		.container {
+			width: 100%;
+			max-width: 768px;
+		}
+        .container .column,
+		.container .columns {
+			margin-left: 1.302083333333333333%; /* 10px/768px */
+			margin-right: 1.302083333333333333%; /* 10px/768px */
+		}
+		.column.alpha, .columns.alpha {
+			margin-left: 0;
+			margin-right: 1.302083333333333333%; /* 10px/768px */
+		}
+		.column.omega, .columns.omega {
+			margin-right: 0;
+			margin-right: 1.302083333333333333%; /* 10px/768px */
+		}
+
+        .container .one.column                      { width: 5.208333333333333%; /* 40px/768px */}
+        .container .two.columns                     { width: 9.895833333333333%; /* 76px/768px */}
+        .container .three.columns                   { width: 16.14583333333333%; /* 124px/768px */}
+        .container .four.columns                    { width: 22.39583333333333%; /* 172px/768px */}
+        .container .five.columns                    { width: 28.64583333333333%; /* 220px/768px */}
+        .container .six.columns                     { width: 34.89583333333333%; /* 268px/768px */}
+        .container .seven.columns                   { width: 41.14583333333333%; /* 316px/768px */}
+        .container .eight.columns                   { width: 47.39583333333333%; /* 364px/768px */}
+        .container .nine.columns                    { width: 53.64583333333333%; /* 412px/768px */}
+        .container .ten.columns                     { width: 59.89583333333333%; /* 460px/768px */}
+        .container .eleven.columns                  { width: 66.14583333333333%; /* 508px/768px */}
+        .container .twelve.columns                  { width: 72.39583333333333%; /* 556px/768px */}
+        .container .thirteen.columns                { width: 78.64583333333333%; /* 604px/768px */}
+        .container .fourteen.columns                { width: 84.89583333333333%; /* 652px 768px */}
+        .container .fifteen.columns                 { width: 91.14583333333333%; /* 700px/768px */}
+        .container .sixteen.columns                 { width: 97.39583333333333%; /* 748px 768px */}
+
+        .container .one-third.column                { width: 18.22916666666666%; /* 140px/768px */}
+        .container .two-thirds.column               { width: 64.06250000000000%; /* 492px/768px */}
+
+	}
+
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+		.container {
+			width: 100%;
+			max-width: 300px;
+		}
+        .columns, .column { margin: 0; }
+
+        .container .one.column,
+        .container .two.columns,
+        .container .three.columns,
+        .container .four.columns,
+        .container .five.columns,
+        .container .six.columns,
+        .container .seven.columns,
+        .container .eight.columns,
+        .container .nine.columns,
+        .container .ten.columns,
+        .container .eleven.columns,
+        .container .twelve.columns,
+        .container .thirteen.columns,
+        .container .fourteen.columns,
+        .container .fifteen.columns,
+        .container .sixteen.columns,
+        .container .one-third.column,
+        .container .two-thirds.column  { width: 100%; max-width: 300px; }
+    }
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+		.container {
+			width: 100%;
+			max-width: 420px;
+		}
+        .columns, .column { margin: 0; }
+
+        .container .one.column,
+        .container .two.columns,
+        .container .three.columns,
+        .container .four.columns,
+        .container .five.columns,
+        .container .six.columns,
+        .container .seven.columns,
+        .container .eight.columns,
+        .container .nine.columns,
+        .container .ten.columns,
+        .container .eleven.columns,
+        .container .twelve.columns,
+        .container .thirteen.columns,
+        .container .fourteen.columns,
+        .container .fifteen.columns,
+        .container .sixteen.columns,
+        .container .one-third.column,
+        .container .two-thirds.column { width: 100%; max-width: 420px; }
+    }
+
+
+/* #Clearing
+================================================== */
+
+    /* Self Clearing Goodness */
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after,
+    .row:before,
+    .row:after {
+      content: '\0020';
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0; }
+    .row:after,
+    .clearfix:after {
+      clear: both; }
+    .row,
+    .clearfix {
+      zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {
+      clear: both;
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+
+

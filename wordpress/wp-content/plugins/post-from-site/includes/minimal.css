@@ -1,0 +1,73 @@
+/* Tried getting an in-admin link... didn't work well. todo for later version?
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site ul {
+	width:550px;
+}
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li,
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li a,
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li a span,
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li a strong {
+	color: #555;
+	text-shadow: none;
+}
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li a {
+	display:inline;
+}
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li:hover,
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li.hover,
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li:hover > a,
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li:hover > a span,
+#wpadminbar .quicklinks #wp-admin-bar-post_from_site.menupop ul li:hover > a strong {
+	background:white;
+}
+*/
+
+.pfs_postform {
+	display:block;
+	position:absolute;
+}
+.pfs-post-box{
+	background-color:white;
+    position:absolute;
+    width:600px;
+    z-index:9999;
+    padding:20px 20px 10px;
+}
+#pfs_form .input-text {
+	display: block;
+	width: 97%;
+}
+#recaptcha_response_field { left:0 !important; }
+#recaptcha_area input {
+	text-indent: 0;
+	margin: 0;
+}
+#recaptcha_area label {
+	margin:0;
+}
+
+#alert,.error{
+    border:1px solid red;
+    padding:10px;
+    margin:3px;
+    background-color:#eda9a9;
+    font-weight:normal;
+}
+.clear {clear:both;}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
+}
+html[xmlns] .clearfix {
+	display: block;
+}
+* html .clearfix {
+	height: 1%;
+}
+
