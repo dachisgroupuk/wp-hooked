@@ -496,101 +496,6 @@ footer.entry-meta {
 	line-height: 1.4em;
 }
 
-/*---------- Post: vote ----------*/
-.entry-vote {
-	border-top:1px solid #ccc;
-	padding:10px 0 0 0;
-}
-
-.entry-vote h2 {
-	font-size:1.8em;
-	font-family: "quatro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	line-height:1.5em;
-}
-
-.entry-vote .thumbs-up .wpv_votewidget {
-	font-size:1.250em;
-	margin:10px 0 20px 0;
-	display:block;
-}
-
-.entry-vote .wpv_votebtn_txt {
-	color:#000 !important;
-	margin:0;
-}
-
-.entry-vote .wpv_vote_icon, 
-.entry-vote .wpv_voted_icon {
-	background-image:none !important;
-	font-family: 'FontAwesome';
-	font-size:1.2em; /*18px*/
-}
-.entry-vote .wpv_vote_icon:before, 
-.entry-vote .wpv_voted_icon:before  {
-	content: "\f087";
-	line-height:;
-}
-.entry-vote .wpv_vote_icon,
-.entry-vote .wpv_vote_icon:before {
-	color:#298cba;
-}
-.entry-vote .wpv_voted_icon,
-.entry-vote .wpv_voted_icon:before {
-	color:#000;
-}
-
-/*---------- Post: meta ----------*/
-
-.entry-meta {
-	margin: 0;
-	padding: 0;
-	font-size: 1.4em;
-	color: #999;
-}
-
-.entry-meta .thumbs-up {
-	margin:0 0 15px 0;
-	display:block;
-	background-color:#ebf2f5;
-	border:1px solid #2c9bcd;
-	color:#000;
-	padding:5px 1.51515152%; /*10px*/
-}
-
-.entry-meta .wpv_postvote {
-	margin:0;
-}
-
-.entry-meta .wpv_votewidget {
-	font-size:1.083em;
-
-}
-.entry-meta .wpv_votebtn_txt {
-	margin:0;
-	color:#000 !important;
-}
-
-.entry-meta .wpv_vote_icon, 
-.entry-meta .wpv_voted_icon {
-	background-image:none !important;
-	font-family: 'FontAwesome';
-	font-size:1.385em; /*18px*/
-}
-.entry-meta .wpv_vote_icon:before, 
-.entry-meta .wpv_voted_icon:before  {
-	content: "\f087";
-	line-height:1em;
-}
-.entry-meta .wpv_vote_icon,
-.entry-meta .wpv_vote_icon:before {
-	color:#298cba;
-}
-.entry-meta .wpv_voted_icon,
-.entry-meta .wpv_voted_icon:before {
-	color:#000;
-}
-
-
 /*---------- Pages ----------*/
 
 
@@ -983,7 +888,102 @@ h1.menu-toggle:after {
 	#comments #respond #commentform .form-submit input#submit {
 	}
 	#comments #respond #commentform label {/*font-size: 1.3em; font-weight: bold;*/}
+	
+	/*---------- Post: vote ----------*/
+	.entry-vote {
+		border-top:1px solid #ccc;
+		padding:10px 0 0 0;
+	}
 
+	.entry-vote h2 {
+		font-size:1.8em;
+		font-family: "quatro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		line-height:1.5em;
+	}
+
+	.entry-vote .thumbs-up .wpv_votewidget {
+		font-size:1.250em;
+		margin:10px 0 20px 0;
+		display:block;
+	}
+
+	.entry-vote .wpv_votebtn_txt {
+		color:#000 !important;
+		margin:0;
+	}
+
+	.entry-vote .wpv_vote_icon, 
+	.entry-vote .wpv_voted_icon {
+		background-image:none !important;
+		font-family: 'FontAwesome';
+		font-size:1.2em; /*18px*/
+	}
+	.entry-vote .wpv_vote_icon:before, 
+	.entry-vote .wpv_voted_icon:before  {
+		content: "\f087";
+		line-height:;
+	}
+	.entry-vote .wpv_vote_icon,
+	.entry-vote .wpv_vote_icon:before {
+		color:#298cba;
+	}
+	.entry-vote .wpv_voted_icon,
+	.entry-vote .wpv_voted_icon:before {
+		color:#000;
+	}
+
+	/*---------- Post: meta ----------*/
+
+	.entry-meta {
+		margin: 0;
+		padding: 0;
+		font-size: 1.4em;
+		color: #999;
+	}
+
+	.entry-meta .thumbs-up {
+		margin:0 0 15px 0;
+		display:block;
+		background-color:#ebf2f5;
+		border:1px solid #2c9bcd;
+		color:#000;
+		padding:5px 1.51515152%; /*10px*/
+	}
+
+	.entry-meta .wpv_postvote {
+		margin:0;
+	}
+
+	.entry-meta .wpv_votewidget {
+		font-size:1.083em;
+
+	}
+	.entry-meta .wpv_votebtn_txt {
+		margin:0;
+		color:#000 !important;
+	}
+
+	.entry-meta .wpv_vote_icon, 
+	.entry-meta .wpv_voted_icon {
+		background-image:none !important;
+		font-family: 'FontAwesome';
+		font-size:1.385em; /*18px*/
+	}
+	.entry-meta .wpv_vote_icon:before, 
+	.entry-meta .wpv_voted_icon:before  {
+		content: "\f087";
+		line-height:1em;
+	}
+	.entry-meta .wpv_vote_icon,
+	.entry-meta .wpv_vote_icon:before {
+		color:#298cba;
+	}
+	.entry-meta .wpv_voted_icon,
+	.entry-meta .wpv_voted_icon:before {
+		color:#000;
+	}
+	
+	
 }
 
 
