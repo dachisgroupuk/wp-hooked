@@ -61,7 +61,10 @@
   			/* thumbs-up */
   	?>
   	<span class="thumbs-up">
-  	  <?php wp_gdsr_render_article_thumbs(25); ?>
+  	  <?php
+  	  if(function_exists('wpv_voting_display_vote'))
+  	   wpv_voting_display_vote(get_the_ID());
+  	  ?>
   	</span>
 		<?php if ( comments_open() || ( '0' != get_comments_number() && ! comments_open() ) ) : ?>
 		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'coldharbour' ), __( '1 Comment', 'coldharbour' ), __( '% Comments', 'coldharbour' ) ); ?></span>

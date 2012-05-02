@@ -19,6 +19,20 @@
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'coldharbour' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 
+  <div class="entry-vote">
+    	 <h2>Vote for this</h2>  
+       <?php
+      			/* thumbs-up */
+      	?>
+      	<span class="thumbs-up">
+
+      	  <?php
+      	  if(function_exists('wpv_voting_display_vote'))
+      	   wpv_voting_display_vote(get_the_ID());
+      	  ?>
+      	</span>
+  </div>
+
 	<footer class="entry-meta">
 		<?php
 			/* translators: used between list items, there is a space after the comma */
@@ -53,7 +67,10 @@
 				the_title_attribute( 'echo=0' )
 			);
 		?>
-
+		
+		  
+	
+    	
 		<?php edit_post_link( __( 'Edit', 'coldharbour' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->

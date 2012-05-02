@@ -254,3 +254,12 @@ function coldharbour_posted_on() {
 }
 endif;
 
+
+/*Let's take away some plugin styles yeah?*/
+add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
+
+function my_deregister_styles() {
+	wp_deregister_style( 'pfs-style' );
+	wp_deregister_style( 'pfs-min-style' );
+}
+

@@ -461,6 +461,7 @@ footer.entry-meta {
 	margin:0 0 5px 0;
 	color: #666;
 	font-size: 1.3em;
+	line-height:1.385em;
 }
 .entry-header .comments-link {margin: 10px 0 0 0; font-size: 1.3em;}
 
@@ -495,6 +496,49 @@ footer.entry-meta {
 	line-height: 1.4em;
 }
 
+/*---------- Post: vote ----------*/
+.entry-vote {
+	border-top:1px solid #ccc;
+	padding:10px 0 0 0;
+}
+
+.entry-vote h2 {
+	font-size:1.8em;
+	font-family: "quatro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height:1.5em;
+}
+
+.entry-vote .thumbs-up .wpv_votewidget {
+	font-size:1.250em;
+	margin:10px 0 20px 0;
+	display:block;
+}
+
+.entry-vote .wpv_votebtn_txt {
+	color:#000 !important;
+	margin:0;
+}
+
+.entry-vote .wpv_vote_icon, 
+.entry-vote .wpv_voted_icon {
+	background-image:none !important;
+	font-family: 'FontAwesome';
+	font-size:1.2em; /*18px*/
+}
+.entry-vote .wpv_vote_icon:before, 
+.entry-vote .wpv_voted_icon:before  {
+	content: "\f087";
+	line-height:;
+}
+.entry-vote .wpv_vote_icon,
+.entry-vote .wpv_vote_icon:before {
+	color:#298cba;
+}
+.entry-vote .wpv_voted_icon,
+.entry-vote .wpv_voted_icon:before {
+	color:#000;
+}
+
 /*---------- Post: meta ----------*/
 
 .entry-meta {
@@ -504,21 +548,48 @@ footer.entry-meta {
 	color: #999;
 }
 
-.entry-meta .thumbs-up .gdthumb .gdt-starrating {
-	background-image:none !important;
-}
-.entry-meta .thumbs-up .gdup .gdt-starrating,
-.entry-meta .thumbs-up .gddw .gdt-starrating {
-	font-family: 'FontAwesome';
-	font-size:1.5em;
+.entry-meta .thumbs-up {
+	margin:0 0 15px 0;
+	display:block;
+	background-color:#ebf2f5;
+	border:1px solid #2c9bcd;
+	color:#000;
+	padding:5px 1.51515152%; /*10px*/
 }
 
-.entry-meta .thumbs-up .gdup .gdt-starrating:before {
+.entry-meta .wpv_postvote {
+	margin:0;
+}
+
+.entry-meta .wpv_votewidget {
+	font-size:1.083em;
+
+}
+.entry-meta .wpv_votebtn_txt {
+	margin:0;
+	color:#000 !important;
+}
+
+.entry-meta .wpv_vote_icon, 
+.entry-meta .wpv_voted_icon {
+	background-image:none !important;
+	font-family: 'FontAwesome';
+	font-size:1.385em; /*18px*/
+}
+.entry-meta .wpv_vote_icon:before, 
+.entry-meta .wpv_voted_icon:before  {
 	content: "\f087";
+	line-height:1em;
 }
-.entry-meta .thumbs-up .gddw .gdt-starrating:before {
-	content: "\f088";
+.entry-meta .wpv_vote_icon,
+.entry-meta .wpv_vote_icon:before {
+	color:#298cba;
 }
+.entry-meta .wpv_voted_icon,
+.entry-meta .wpv_voted_icon:before {
+	color:#000;
+}
+
 
 /*---------- Pages ----------*/
 
@@ -580,7 +651,11 @@ footer.entry-meta {
 	display: block;
 }
 .main-navigation li.current_page_item a,
-.main-navigation li.current-menu-item a {
+.main-navigation li.current-menu-item a, 
+.page-template-page-ideas-php .main-navigation li#menu-item-17 a, 
+.page-template-page-submit-idea-php .main-navigation li#menu-item-16 a,
+.page-template-page-ideas-archive-php .main-navigation li#menu-item-15 a {
+	color:#000;
 }
 
 /* Small menu */
@@ -693,6 +768,27 @@ h1.menu-toggle:after {
 #comments #respond #commentform .comment-form-comment textarea#comment {}
 #comments #respond #commentform .form-submit input#submit {}
 
+/*---------- Submit ----------*/
+#submit label {
+	font-size:1.5em;
+	font-weight:bold;
+	clear:both;
+	display:block;
+	margin:10px 0 5px 0;
+}
+
+#submit input[type=text],
+#submit textarea {
+	font-size:1.5em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#submit .submit {
+	margin:10px 0 0 0;
+	font-size:1.5em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:bold;
+}
 
 /*---------- Sidebar ----------*/
 #sidebar ul li {
@@ -906,46 +1002,46 @@ h1.menu-toggle:after {
 
 @media screen and (min-width: 1100px) {
 	#site {
-		max-width:1280px;
+		max-width:1200px;
 		margin:0 auto;
 	}
 	#masthead {
-		padding: 20px 1.5625%; /* 20px/1280px */
-		width: 96.875%; /* 1240px/1280px */
+		padding: 20px 1.66666667%; /* 20px/1200px */
+		width: 96.6666667%; /* 1160px/1200px */
 	}
 	/*---------- site ----------*/	
 	#primary {
 		float: left;
 		clear: none;
-		width: 50%; /*600px/1200px*/
-		max-width: 620px;
+		width: 58.3333333%; /*700px/1200px*/
+		max-width: 700px;
 	}
 	#sidebar {
 		float: right;
 		clear: none;
 		margin: 20px 0 0 5%; /* 60px/1200px */
-		max-width: 460px;
-		width: 45%; /* 540px/1200px */
+		max-width: 400px;
+		width: 33.333333%; /* 400px/1200px */
 	}
 	/*---------- posts ----------*/	
 	article {
 		float: left;
 		margin: 0;
-		padding: 20px 3.3333333%; /* 20px/600px */
-		width: 93.3333333%; /* 560px/600px */
+		padding: 20px 2.85714286%; /* 20px/700px */
+		width: 94.2857143%; /* 660px/700px */
 	}
 
 	#nav-below {
 		margin: 0;
-		padding: 20px 3.3333333%; /* 20px/600px */
-		width: 93.3333333%; /* 560px/600px */
+		padding: 20px 2.85714286%; /* 20px/700px */
+		width: 94.2857143%; /* 660px/700px */
 	}
 
 
 	#comments {
 		margin: 0;
-		padding: 20px 3.3333333%; /* 20px/600px */
-		width: 93.3333333%; /* 560px/600px */
+		padding: 20px 2.85714286%; /* 20px/700px */
+		width: 94.2857143%; /* 660px/700px */
 		clear: both;
 	}
 
@@ -974,8 +1070,8 @@ h1.menu-toggle:after {
 
 	#sidebar aside.widget {
 		height: auto;
-		width: 91.30434%; /*420px/460px*/
-		padding: 0 4.34782%; /*20px/460px*/
+		width: 90%; /*360px/400px*/
+		padding: 0 5%; /*20px/400px*/
 		background: none;
 		margin:0 0 20px 0;
 	}
@@ -996,6 +1092,29 @@ h1.menu-toggle:after {
 	}
 	#sidebar aside#twitter div.widget-box ul li a {font-size: 1em; color: #1985B5;}
 	#sidebar aside#twitter div.widget-box ul li a.timestamp {color: #666;font-size:0.857em;}
+	
+	
+	/*---------- Sidebar: Votes ----------*/
+
+	#sidebar aside#votes div.widget-box p {font-size: 1.3em; clear: both; padding: 20px 0;}
+	#sidebar aside#votes div.widget-box ul {float: left; margin: 10px 0 0 0;}
+	#sidebar aside#votes div.widget-box ul li {
+		float: left;
+		margin: 0 0 10px 0;
+		padding: 0 0 10px 0;
+		font-size: 1.3em;
+		line-height: 1.462em; /*19px*/
+		color: #333;
+		border-bottom:1px solid #ccc;
+	}
+	#sidebar aside#votes div.widget-box ul li a {font-size: 1em; color: #1985B5;}
+	#sidebar aside#votes div.widget-box ul li .date {color: #666;font-size:0.857em;}
+	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote {
+		display:inline;
+	}
+	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote .wpv_votebtncon {
+		display:none;
+	}
 
 
 	/*---------- Colophon ----------*/

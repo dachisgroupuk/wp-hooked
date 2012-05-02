@@ -1,0 +1,27 @@
+#admin_side_tbl{
+    background: none repeat scroll 0 0 #FAFAFA;
+    border: 1px dashed #CCCCCC;
+    width: 100%;
+}
+#admin_side_tbl table
+{
+    width: 100%;
+}
+#admin_side_tbl thead {
+    background: #DDDDDD;
+    
+}
+#admin_side_tbl thead tr th {
+    text-align: center;
+    color: gray;
+    font-size: 18px;
+}
+.wpv_icode {
+    font-weight: bold;
+    font-style: italic;
+    background-color: #eee;
+}
+div.postbox div.inside {
+    margin: 10px 0;
+    position: relative;
+}
