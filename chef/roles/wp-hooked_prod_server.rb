@@ -29,7 +29,7 @@ override_attributes(
   },
   :wp_hooked => {
     :web_server_name => "wp-hooked.com",
-    :web_server_aliases => [ "www.wp-hooked.com" ],
+    :web_server_aliases => [ "www.wp-hooked.com", "wp-hooked.co.uk", "www.wp-hooked.co.uk" ],
     :deploy_branch => "production",
     :db_user => "wp_hooked",
     :db_password => "av3L34+epW",
