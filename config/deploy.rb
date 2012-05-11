@@ -3,7 +3,7 @@ require 'yaml'
 
 set :stages, %w(production)
 set :default_stage, 'production'
-set :application, "wp-hooked"
+set :application, "wp-hooked.com"
 set :repository,  "git@github.com:headshift/wp-hooked.git"
 
 set :scm, :git
