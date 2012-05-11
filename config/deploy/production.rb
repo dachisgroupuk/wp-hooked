@@ -7,4 +7,15 @@ set :application, "wp-hooked.com"
 set :branch, 'production'
 set :deploy_via, :remote_cache
 
+namespace :deploy do
+  desc "Link the config files"
+  task :symlink_config do
+    run "ln -s #{shared_path}/config/wp-config.php #{release_path}/wordpress/wp-config.php"
+  end
+
+  desc "Link the upload dir"
+  task :symlink_uploads do
+    run "ln -s #{shared_path}/uploads #{release_path}/wordpress/wp-content/uploads"
+  end
+end
 
