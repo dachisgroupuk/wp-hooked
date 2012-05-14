@@ -1,0 +1,47 @@
+<VirtualHost _default_:80>
+  ServerName <%= node[:wp_hooked][:web_server_name] %>
+  <% if node[:wp_hooked][:web_server_aliases] != nil -%>
+  <% node[:wp_hooked][:web_server_aliases].each do |a| -%>
+  ServerAlias <%= a %>
+  <% end -%>
+  <% end -%>
+  ServerAdmin support@headshift.com
+  DocumentRoot <%= node[:wp_hooked][:docroot] %>
+  RewriteEngine On
+  RewriteLog <%= node[:apache][:log_dir] %>/<%= @application_name %>-rewrite.log
+  RewriteLogLevel 0
+
+  # Canonical host, <%= node[:wp_hooked][:web_server_name] %>
+  RewriteCond %{HTTP_HOST}   !^<%= node[:wp_hooked][:web_server_name] %>$ [NC]
+  RewriteRule ^/(.*)$        http://<%= node[:wp_hooked][:web_server_name] %>/$1 [L,R=301]
+
+  # FastCGI Settings
+  AddHandler    fcgid-script .fcgi .php
+  FCGIwrapper   /usr/bin/php-cgi .php
+  IPCConnectTimeout 600
+  IPCCommTimeout 600
+
+  <Directory <%= node[:wp_hooked][:docroot] %>>
+    Options FollowSymLinks +ExecCGI
+    AllowOverride All
+    <% if node[:wp_hooked][:deploy_branch] == "staging" -%>
+    AuthType basic
+    AuthName "Private Site"
+    AuthUserFile <%= node[:wp_hooked][:htpasswd_file] %>
+    Require valid-user
+    Order allow,deny
+    Allow from 212.161.9.160/28
+    Satisfy Any
+    <% else -%>
+    Order allow,deny
+    Allow from all
+    <% end -%>
+  </Directory>
+
+  LogLevel info
+  ErrorLog <%= node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
+  CustomLog <%= node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log combined
+
+
+</VirtualHost>
+

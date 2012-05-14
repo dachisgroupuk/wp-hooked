@@ -1,0 +1,8 @@
+local:
+  hostname: <%= node[:wp_hooked][:web_server_name] %>
+  root_username: root
+  root_password: ''
+  username: <%= node[:wp_hooked][:db_user] %>
+  password: <%= node[:wp_hooked][:db_pass] %>
+  database: <%= node[:wp_hooked][:db_name] %>
+
