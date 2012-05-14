@@ -307,7 +307,7 @@ function coldharbour_theme_options_validate( $input ) {
 
 	// The sample textarea must be safe text with the allowed tags for posts
 	if ( isset( $input['sample_textarea'] ) )
-		$output['sample_textarea'] = wp_filter_post_kses($input['sample_textarea'] );
+		$output['sample_textarea'] = $input['sample_textarea'];
 
 	return apply_filters( 'coldharbour_theme_options_validate', $output, $input, $defaults );
 }

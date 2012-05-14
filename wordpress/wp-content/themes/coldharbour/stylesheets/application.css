@@ -206,16 +206,19 @@ input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly i
 	padding: 0;
 }
 input[type=text],
+input.input-text,
 textarea {
 	color: #666;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
 input[type=text]:focus,
+input.input-text:focus,
 textarea:focus {
 	color: #111;
 }
-input[type=text] {
+input[type=text], 
+input.input-text {
 	padding: 5px;
 	vertical-align: top;
 }
@@ -683,9 +686,14 @@ h1.menu-toggle:after {
 }
 
 #submit input[type=text],
+#submit input.input-text, 
 #submit textarea {
 	font-size:1.5em;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#recaptcha_area {
+	margin-top:20px;
 }
 
 #submit .submit {
@@ -1114,6 +1122,12 @@ h1.menu-toggle:after {
 	}
 	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote .wpv_votebtncon {
 		display:none;
+	}
+	
+	/*---------- Submit ----------*/
+	#submit input[type=text], 
+	#submit input.input-text {
+		width:400px;
 	}
 
 

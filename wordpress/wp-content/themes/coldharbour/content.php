@@ -57,15 +57,18 @@
 			
 		
 		<?php endif; // End if 'post' == get_post_type() ?>
-    <?php
-  			/* thumbs-up */
-  	?>
-  	<span class="thumbs-up">
-  	  <?php
-  	  if(function_exists('wpv_voting_display_vote'))
-  	   wpv_voting_display_vote(get_the_ID());
-  	  ?>
-  	</span>
+		
+      <?php if ( 'ideas' == get_post_type() ) :  ?>
+    	<span class="thumbs-up">
+    	  <?php
+    	  if(function_exists('wpv_voting_display_vote'))
+    	   wpv_voting_display_vote(get_the_ID());
+    	  ?>
+    	</span>
+      <?php endif; // End if $tags_list ?>
+      
+      
+    
 		<?php if ( comments_open() || ( '0' != get_comments_number() && ! comments_open() ) ) : ?>
 		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'coldharbour' ), __( '1 Comment', 'coldharbour' ), __( '% Comments', 'coldharbour' ) ); ?></span>
 		<span class="sep"> | </span>
