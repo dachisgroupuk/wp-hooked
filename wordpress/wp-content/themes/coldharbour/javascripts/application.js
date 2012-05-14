@@ -32,7 +32,6 @@ coldharbour = {
 		    });
 		}
 	},
-	
 	chEmpty: function() {
 		jQuery("#sidebar").find("#twitter").empty().css("display","none");
 	}

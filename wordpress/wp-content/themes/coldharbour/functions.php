@@ -255,11 +255,22 @@ function coldharbour_posted_on() {
 endif;
 
 
-/*Let's take away some plugin styles yeah?*/
-add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
+
 
 function my_deregister_styles() {
 	wp_deregister_style( 'pfs-style' );
 	wp_deregister_style( 'pfs-min-style' );
 }
 
+/*De-registering and re-registering pfs-styles to inform user of submission*/
+function my_scripts_method() {
+    wp_deregister_script( 'pfs-script' );
+    wp_register_script( 'pfs-script', get_template_directory_uri() .'/javascripts/post-from-site-fix.js');
+    wp_enqueue_script( 'pfs-script' );
+}    
+ 
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+
+
+/*Let's take away some plugin styles yeah?*/
+add_action( 'wp_print_styles', 'my_deregister_styles', 100 );

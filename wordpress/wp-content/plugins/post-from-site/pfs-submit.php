@@ -145,7 +145,7 @@ function pfs_submit($post,$files){
             if (0 == $post_id) {
                 $result['error'] = __("Unable to insert post- unknown error.",'pfs_domain');
             } else {
-                $result['success'] = __("Post added, please wait to return to the previous page.",'pfs_domain');
+                $result['success'] = __("Idea submitted, we'll be looking at this soon. Thanks!",'pfs_domain');
                 $result['post'] = $post_id;
             }
         } else {
