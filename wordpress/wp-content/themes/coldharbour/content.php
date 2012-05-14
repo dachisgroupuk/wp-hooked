@@ -65,7 +65,7 @@
     	   wpv_voting_display_vote(get_the_ID());
     	  ?>
     	</span>
-      <?php endif; // End if $tags_list ?>
+      <?php endif; // End if ideas ?>
       
       
     

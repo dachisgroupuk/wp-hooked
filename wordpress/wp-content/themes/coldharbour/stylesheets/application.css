@@ -517,12 +517,13 @@ footer.entry-meta {
 	margin:0;
 }
 .main-navigation li {
-	font-size:1.8em;
+	font-size:2.0em;
 	line-height:1.5em;
 	float: left;
 	position: relative;
 	margin:0 20px 0 0;
-	font-family: "quatro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight:bold;
 }
 .main-navigation a {
 	display: block;
