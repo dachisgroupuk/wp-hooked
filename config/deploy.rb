@@ -20,7 +20,7 @@ set :group,       'devs'
 set :use_sudo,    false
 default_run_options[:pty] = true
 
-set :deploy_to, "/srv/html/iview"
+set :deploy_to, "/srv/html/wp_hooked"
 
 after "deploy", 'deploy:symlink_config', 'deploy:symlink_uploads'
 
