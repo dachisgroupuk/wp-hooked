@@ -1032,6 +1032,28 @@ h1.menu-toggle:after {
 		color:#000;
 	}
 	
+	/*---------- Sidebar: Votes ----------*/
+
+	#sidebar aside#votes div.widget-box p {font-size: 1.3em; clear: both; padding: 20px 0;}
+	#sidebar aside#votes div.widget-box ul {float: left; margin: 10px 0 0 0;}
+	#sidebar aside#votes div.widget-box ul li {
+		float: left;
+		margin: 0 0 10px 0;
+		padding: 0 0 10px 0;
+		font-size: 1.3em;
+		line-height: 1.462em; /*19px*/
+		color: #333;
+		border-bottom:1px solid #ccc;
+	}
+	#sidebar aside#votes div.widget-box ul li a {font-size: 1em; color: #1985B5;}
+	#sidebar aside#votes div.widget-box ul li .date {color: #666;font-size:0.857em;}
+	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote {
+		display:inline;
+	}
+	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote .wpv_votebtncon {
+		display:none;
+	}
+	
 	
 }
 
@@ -1155,27 +1177,7 @@ h1.menu-toggle:after {
 	#sidebar aside#twitter div.widget-box ul li a.timestamp {color: #666;font-size:0.857em;}
 	
 	
-	/*---------- Sidebar: Votes ----------*/
 
-	#sidebar aside#votes div.widget-box p {font-size: 1.3em; clear: both; padding: 20px 0;}
-	#sidebar aside#votes div.widget-box ul {float: left; margin: 10px 0 0 0;}
-	#sidebar aside#votes div.widget-box ul li {
-		float: left;
-		margin: 0 0 10px 0;
-		padding: 0 0 10px 0;
-		font-size: 1.3em;
-		line-height: 1.462em; /*19px*/
-		color: #333;
-		border-bottom:1px solid #ccc;
-	}
-	#sidebar aside#votes div.widget-box ul li a {font-size: 1em; color: #1985B5;}
-	#sidebar aside#votes div.widget-box ul li .date {color: #666;font-size:0.857em;}
-	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote {
-		display:inline;
-	}
-	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote .wpv_votebtncon {
-		display:none;
-	}
 	
 	/*---------- Submit ----------*/
 	#submit input[type=text], 
