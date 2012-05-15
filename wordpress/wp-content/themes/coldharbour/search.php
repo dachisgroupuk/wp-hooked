@@ -12,13 +12,13 @@ get_header(); ?>
 			<section id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
-
+        <article id="search-header">
 				<header class="page-header">
-					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'coldharbour' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'coldharbour' ), '<em>' . get_search_query() . '</em>' ); ?></h1>
 				</header>
 
 				<?php coldharbour_content_nav( 'nav-above' ); ?>
-
+        </article>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 

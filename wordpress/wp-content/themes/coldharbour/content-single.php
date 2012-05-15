@@ -18,7 +18,7 @@
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'coldharbour' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
-
+  <?php if ( 'ideas' == get_post_type() ) :  ?>
   <div class="entry-vote">
     	 <h2>Vote for this</h2>  
        <?php
@@ -32,6 +32,7 @@
       	  ?>
       	</span>
   </div>
+<?php endif; // End if ideas ?>
 
 	<footer class="entry-meta">
 		<?php

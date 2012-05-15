@@ -54,7 +54,6 @@
 
 		<?php if ( comments_open() || ( '0' != get_comments_number() && ! comments_open() ) ) : ?>
 		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'coldharbour' ), __( '1 Comment', 'coldharbour' ), __( '% Comments', 'coldharbour' ) ); ?></span>
-		<span class="sep"> | </span>
 		<?php endif; ?>
 
 		<?php edit_post_link( __( 'Edit', 'coldharbour' ), '<span class="edit-link">', '</span>' ); ?>

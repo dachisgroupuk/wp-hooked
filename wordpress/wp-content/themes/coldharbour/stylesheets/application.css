@@ -121,6 +121,7 @@ table {
 th {
 	font-weight: bold;
 }
+.button,
 button,
 input,
 select,
@@ -130,11 +131,13 @@ textarea {
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 	*vertical-align: middle; /* Improves appearance and consistency in all browsers */
 }
+.button,
 button,
 input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 	*overflow: visible;  /* Corrects inner spacing displayed oddly in IE6/7 */
 }
+.button,
 button,
 html input[type="button"],
 input[type="reset"],
@@ -154,12 +157,14 @@ input[type="submit"] {
 	color: rgba(0,0,0,.8);
 	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
 	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
+	font-size: 14px;
 	font-size: 1.2em;
 	line-height: 2;
-	padding: 4px 10px;
+	padding: 4px 15px;
 	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+	text-decoration:none;
 }
+.button:hover,
 button:hover,
 html input[type="button"]:hover,
 input[type="reset"]:hover,
@@ -174,6 +179,7 @@ input[type="submit"]:hover {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-9 */
 	border-color: #bbb #bbb #aaa #bbb;
 }
+.button:focus,
 button:focus,
 html input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -211,6 +217,11 @@ textarea {
 	color: #666;
 	border: 1px solid #ccc;
 	border-radius: 3px;
+}
+textarea {
+	font-size:14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding:3px;
 }
 input[type=text]:focus,
 input.input-text:focus,
@@ -440,8 +451,9 @@ article footer.entry-meta {
 
 
 /*---------- Post: header----------*/
-h1.entry-title {
-    color: #333333;
+h1.entry-title, 
+h1.page-title {
+    color: #2489b8;
     font-size: 3em;
 	line-height:1em;
     font-style: normal;
@@ -470,7 +482,8 @@ footer.entry-meta {
 
 /*---------- Post: content ----------*/
 
-.entry-content p, .entry-summary p {
+.entry-content p, .entry-summary p, 
+#submit p {
 	margin: 15px 0;
 	padding: 0;
 	font-size: 1.5em;
@@ -561,9 +574,9 @@ footer.entry-meta {
 }
 .main-navigation li.current_page_item a,
 .main-navigation li.current-menu-item a, 
-.page-template-page-ideas-php .main-navigation li#menu-item-17 a, 
-.page-template-page-submit-idea-php .main-navigation li#menu-item-16 a,
-.page-template-page-ideas-archive-php .main-navigation li#menu-item-15 a {
+.page-template-page-ideas-php .main-navigation li#menu-item-15 a, 
+.page-template-page-submit-idea-php .main-navigation li#menu-item-12 a,
+.page-template-page-ideas-archive-php .main-navigation li#menu-item-11 a {
 	color:#000;
 }
 
@@ -1028,15 +1041,27 @@ h1.menu-toggle:after {
 ----------------------------------------*/
 
 @media screen and (min-width: 768px) {
-	
-
+	/*---------- site ----------*/	
+	#primary {
+		float: left;
+		clear: none;
+		width: 66.1458333%; /*500px/768px*/
+		max-width: 500px;
+	}
+	#sidebar {
+		float: right;
+		clear: none;
+		margin: 20px 0 0 0; 
+		max-width: 250px;
+		width: 32.5520833%; /* 250px/768px */
+	}
 }
 
 /*----------------------------------------
-  @ min-width: 1180px
+  @ min-width: 1200px
 ----------------------------------------*/
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 980px) {
 	#site {
 		max-width:1200px;
 		margin:0 auto;

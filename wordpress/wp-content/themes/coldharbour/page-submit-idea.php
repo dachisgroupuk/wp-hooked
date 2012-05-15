@@ -23,16 +23,21 @@ get_header(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
 
+			  <?php endwhile; // end of the loop. ?>
 
-			<?php endwhile; // end of the loop. ?>
-			
-			
-			<article id="submit">
-			  <?php
-            $pfs = new PostFromSite(0, 'write a post', false, '');
-            $pfs->form();
-        ?>
-			</article>
+
+  			<article id="submit">
+  			  <?php
+              $pfs = new PostFromSite(0, 'write a post', false, '');
+              $pfs->form();
+          ?>
+          <?php
+          if ( is_user_logged_in() ) {
+          } else { ?>
+                <a href="<?php echo home_url( '/' ); ?>/wp-login.php?action=register" title="Register for this site" class="button">Register for wp-hooked</a>
+          <?php } ?>
+         
+  			</article>
 
 		</section><!-- #content -->
 	</div><!-- #primary .site-content -->
