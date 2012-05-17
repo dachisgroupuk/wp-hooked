@@ -13,7 +13,7 @@ add_action( 'after_setup_theme', 'coldharbour_post_types', 2 );
  *
  **/
 function coldharbour_post_types() {
-    
+
   // Case Studies
   register_post_type( 'ideas',
     array(
@@ -43,6 +43,8 @@ function coldharbour_post_types() {
           'revisions',
           'author'
       ),
+      'map_meta_cap' => true,
+      'capability_type' => 'idea',
       'menu_position' => 4,
       'public' => true,
       'rewrite' => array( 'slug' => 'ideas', 'with_front' => true ),
