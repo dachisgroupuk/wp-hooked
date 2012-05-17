@@ -449,6 +449,15 @@ article footer.entry-meta {
 	font-weight: bold;
 }
 
+/*---------- Author page ----------*/
+#author-page .page-header, 
+#author-page #author-info {
+	float: left;
+	margin: 0;
+	width: 87.5%; /* 280px/320px */
+	padding: 10px 6.25%; /* 20px/320px */
+}
+
 
 /*---------- Post: header----------*/
 h1.entry-title, 
@@ -863,6 +872,14 @@ h1.menu-toggle:after {
 		clear: both;
 	}
 
+	/*---------- Author page ----------*/
+	#author-page .page-header, 
+	#author-page #author-info {
+	  margin: 0;
+	  width: 94.79166%; /* 728px/768px */
+	  padding: 20px 2.60416%; /* 20px/768px */
+	}
+
 	/*---------- Sidebar ----------*/
 	#sidebar aside.widget {
 		margin: 0;
@@ -1090,6 +1107,15 @@ h1.menu-toggle:after {
 		margin: 0;
 		padding: 20px 2.85714286%; /* 20px/700px */
 		width: 94.2857143%; /* 660px/700px */
+	}
+	
+	/*---------- Author page ----------*/
+	#author-page .page-header, 
+	#author-page #author-info {
+	  float: left;
+	  margin: 0;
+	  padding: 20px 2.85714286%; /* 20px/700px */
+	  width: 94.2857143%; /* 660px/700px */
 	}
 
 	#nav-below {
