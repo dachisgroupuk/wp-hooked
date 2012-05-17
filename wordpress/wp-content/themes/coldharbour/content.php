@@ -57,15 +57,6 @@
 			
 		
 		<?php endif; // End if 'post' == get_post_type() ?>
-		
-      <?php if ( 'ideas' == get_post_type() ) :  ?>
-    	<span class="thumbs-up">
-    	  <?php
-    	  if(function_exists('wpv_voting_display_vote'))
-    	   wpv_voting_display_vote(get_the_ID());
-    	  ?>
-    	</span>
-      <?php endif; // End if ideas ?>
       
       
     
