@@ -17,18 +17,18 @@ function coldharbour_roles()
 {
   // until we hear otherwise, assume base capabilities of the contributor role 
   $contributor_role = get_role('contributor');
-  // we need to remove the role beforehand to be sure we're working a clean sheet,
-  // and to stop it failing silently when we try to add an already existing role
-  $local_blogger = remove_role('local_blogger');
-  $local_blogger = add_role('local_blogger', 'Local Blogger', $contributor_role->capabilities);
-  $local_blogger = get_role('local_blogger');
-  $local_blogger->add_cap('upload_files');
-
-  $regional_editor = get_role('Editor'); 
-  
-  $regional_editor = remove_role('regional_editor');
-  $regional_editor = add_role('regional_editor','Regional Editor', $regional_editors->capabilities);
-  $regional_editor = get_role('regional_editor');
+  // // we need to remove the role beforehand to be sure we're working a clean sheet,
+  // // and to stop it failing silently when we try to add an already existing role
+  // $local_blogger = remove_role('local_blogger');
+  // $local_blogger = add_role('local_blogger', 'Local Blogger', $contributor_role->capabilities);
+  // $local_blogger = get_role('local_blogger');
+  // $local_blogger->remove_cap('upload_files');
+  // 
+  // $regional_editor = get_role('Editor'); 
+  // 
+  // $regional_editor = remove_role('regional_editor');
+  // $regional_editor = add_role('regional_editor','Regional Editor', $regional_editors->capabilities);
+  // $regional_editor = get_role('regional_editor');
   /**
     * add_internal_content_type_cats
     *
@@ -44,7 +44,7 @@ function coldharbour_roles()
   function add_internal_content_type_cats($role)
   {
     $updated_role = get_role($role);
-    $updated_role->add_cap('edit_casestudy');
+    $updated_role->remove_cap('edit_ideas');
     
   }
 
@@ -60,15 +60,15 @@ function coldharbour_roles()
 
     $updated_role = get_role($role);
 
-    $updated_role->add_cap('publish_casestudy');
-    $updated_role->add_cap('edit_published_casestudy');
-    $updated_role->add_cap('edit_others_casestudy');
-    $updated_role->add_cap('delete_casestudy');
-    $updated_role->add_cap('delete_private_casestudy');
-    $updated_role->add_cap('delete_published_casestudy');
-    $updated_role->add_cap('delete_others_casestudy');
-    $updated_role->add_cap('edit_private_casestudy');
-    $updated_role->add_cap('edit_published_casestudy');
+    $updated_role->remove_cap('publish_ideas');
+    $updated_role->remove_cap('edit_published_ideas');
+    $updated_role->remove_cap('edit_others_ideas');
+    $updated_role->remove_cap('delete_ideas');
+    $updated_role->remove_cap('delete_private_ideas');
+    $updated_role->remove_cap('delete_published_ideas');
+    $updated_role->remove_cap('delete_others_ideas');
+    $updated_role->remove_cap('edit_private_ideas');
+    $updated_role->remove_cap('edit_published_ideas');
     
   }
 

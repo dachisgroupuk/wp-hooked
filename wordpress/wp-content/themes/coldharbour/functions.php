@@ -274,3 +274,19 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
 
 /*Let's take away some plugin styles yeah?*/
 add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
+
+/*remove author rights*/
+add_action( 'admin_init', 'remove_author_rights' );
+
+function remove_author_rights(){
+  global $wp_roles;
+  $wp_roles->remove_cap('author', 'publish_ideas');
+  $wp_roles->remove_cap('author', 'edit_published_ideas');
+  $wp_roles->remove_cap('author', 'edit_others_ideas');
+  $wp_roles->remove_cap('author', 'delete_ideas');
+  $wp_roles->remove_cap('author', 'delete_private_ideas');
+  $wp_roles->remove_cap('author', 'delete_published_ideas');
+  $wp_roles->remove_cap('author', 'delete_others_ideas');
+  $wp_roles->remove_cap('author', 'edit_private_ideas');
+  $wp_roles->remove_cap('author', 'edit_published_ideas');
+}
