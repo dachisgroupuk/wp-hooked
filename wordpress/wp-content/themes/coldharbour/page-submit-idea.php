@@ -14,6 +14,7 @@
  *
  */
 
+
 get_header(); ?>
 
 	<div id="primary" class="site-content">
@@ -35,13 +36,14 @@ get_header(); ?>
           if ( is_user_logged_in() ) {
           } else { ?>
                 <a href="<?php echo home_url( '/' ); ?>/wp-login.php?action=register" title="Register for this site" class="button">Register for wp-hooked</a>
+                <a href="<?php echo home_url( '/' ); ?>/wp-login.php?action=login" title="Login to this site" class="button">Login wp-hooked</a>
           <?php } ?>
-         
+
   			</article>
 
 		</section><!-- #content -->
 	</div><!-- #primary .site-content -->
-  
+
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
