@@ -450,8 +450,8 @@ article footer.entry-meta {
 }
 
 /*---------- Author page ----------*/
-#author-page .page-header, 
-#author-page #author-info {
+#archive .page-header, 
+#archive #author-info {
 	float: left;
 	margin: 0;
 	width: 87.5%; /* 280px/320px */
@@ -873,8 +873,8 @@ h1.menu-toggle:after {
 	}
 
 	/*---------- Author page ----------*/
-	#author-page .page-header, 
-	#author-page #author-info {
+	#archive .page-header, 
+	#archive #author-info {
 	  margin: 0;
 	  width: 94.79166%; /* 728px/768px */
 	  padding: 20px 2.60416%; /* 20px/768px */
@@ -1132,8 +1132,8 @@ h1.menu-toggle:after {
 	}
 	
 	/*---------- Author page ----------*/
-	#author-page .page-header, 
-	#author-page #author-info {
+	#archive .page-header, 
+	#archive #author-info {
 	  float: left;
 	  margin: 0;
 	  padding: 20px 2.85714286%; /* 20px/700px */
