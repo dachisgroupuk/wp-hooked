@@ -1,8 +1,8 @@
 <?php
 
-class Sharing_Widget extends WP_Widget {
+class Ideas_Widget extends WP_Widget {
     /** constructor */
-	  function Sharing_Widget() {
+	  function Ideas_Widget() {
 	    parent::WP_Widget(
 	      false, 
 	      $name = 'Coldharbour - Sharing widget', 
@@ -24,12 +24,8 @@ class Sharing_Widget extends WP_Widget {
 	    echo $before_widget;
 
 				?>
-				<p class="notice">The content on this website is for Investment Professionals only and should be shared responsibly</p>
-				<ul id="sharing">					
-			    		<li class="linkdin"><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(the_title($echo=false)); ?>&source=<?php echo urlencode("http://www.bondvigilantes.co.uk"); ?>">LinkedIn</a></li>
-  						<li class="twitter"><a href="http://twitter.com/home?status=Currently reading <?php the_permalink() ?>">Twitter</a></li>
-  						<li class="facebook"><a href="<?php the_permalink() ?>">Facebook</a></li>
-  						<li class="delicious"><a href="http://del.icio.us/post?url=<?php the_permalink() ?>&title=<?php the_title(); ?>">Del.icio.us</a></li>				
+				<ul id="ideas">					
+  					
 				</ul>
 				<?php
 	    
