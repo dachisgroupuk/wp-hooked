@@ -228,7 +228,7 @@ input.input-text:focus,
 textarea:focus {
 	color: #111;
 }
-input[type=text], 
+input[type=text],
 input.input-text {
 	padding: 5px;
 	vertical-align: top;
@@ -247,7 +247,7 @@ overflow: hidden;
 }
 /* Links */
 a {
-	color: #298cba; 
+	color: #298cba;
 	text-decoration: underline;
 }
 a:visited {
@@ -354,7 +354,7 @@ object {
 }
 
 /*---------- site ----------*/
-#page {
+#site {
 	margin: 0;
 	padding: 0;
 	min-width: 240px;
@@ -385,7 +385,7 @@ object {
 	color: #000000;
 }
 
-#masthead h1 a, 
+#masthead h1 a,
 #masthead h1 a:link {
 	color:#000000;
 	font-weight:bold;
@@ -450,7 +450,7 @@ article footer.entry-meta {
 }
 
 /*---------- Author page ----------*/
-#archive .page-header, 
+#archive .page-header,
 #archive #author-info {
 	float: left;
 	margin: 0;
@@ -460,7 +460,7 @@ article footer.entry-meta {
 
 
 /*---------- Post: header----------*/
-h1.entry-title, 
+h1.entry-title,
 h1.page-title {
     color: #2489b8;
     font-size: 3em;
@@ -491,7 +491,7 @@ footer.entry-meta {
 
 /*---------- Post: content ----------*/
 
-.entry-content p, .entry-summary p, 
+.entry-content p, .entry-summary p,
 #submit p {
 	margin: 15px 0;
 	padding: 0;
@@ -512,9 +512,9 @@ footer.entry-meta {
 	font-size: 1em;
 	line-height:1em;
 }
-.entry-content table td, 
-.entry-content table th, 
-.entry-content dl dt, 
+.entry-content table td,
+.entry-content table th,
+.entry-content dl dt,
 .entry-content dl dd
 {
 	font-size: 1.5em;
@@ -582,8 +582,8 @@ footer.entry-meta {
 	display: block;
 }
 .main-navigation li.current_page_item a,
-.main-navigation li.current-menu-item a, 
-.page-template-page-ideas-php .main-navigation li#menu-item-15 a, 
+.main-navigation li.current-menu-item a,
+.page-template-page-ideas-php .main-navigation li#menu-item-15 a,
 .page-template-page-submit-idea-php .main-navigation li#menu-item-12 a,
 .page-template-page-ideas-archive-php .main-navigation li#menu-item-11 a {
 	color:#000;
@@ -709,7 +709,7 @@ h1.menu-toggle:after {
 }
 
 #submit input[type=text],
-#submit input.input-text, 
+#submit input.input-text,
 #submit textarea {
 	font-size:1.5em;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -825,12 +825,12 @@ h1.menu-toggle:after {
 	#comments #respond #commentform input[type=text] {width: 278px;}
 	#comments #respond #commentform .comment-form-comment textarea#comment {width: 278px;}
 	#comments #respond #commentform .form-submit input#submit {width: 300px;}
-	
-	
+
+
 	/*---------- Footer ----------*/
 
 	#colophon {font-size: 1.4em;}
-	
+
 }
 
 /*----------------------------------------
@@ -838,7 +838,7 @@ h1.menu-toggle:after {
 ----------------------------------------*/
 
 @media screen and (min-width: 600px) {
-	
+
 	/*---------- Header ----------*/
 	#masthead {
 		width: 94.79166%; /* 728px/768px */
@@ -857,7 +857,7 @@ h1.menu-toggle:after {
 		width: 94.79166%; /* 728px/768px */
 		padding: 20px 2.60416%; /* 20px/768px */
 	}
-	
+
 	#nav-below {
 		margin: 0;
 		width: 94.79166%; /* 728px/768px */
@@ -873,7 +873,7 @@ h1.menu-toggle:after {
 	}
 
 	/*---------- Author page ----------*/
-	#archive .page-header, 
+	#archive .page-header,
 	#archive #author-info {
 	  margin: 0;
 	  width: 94.79166%; /* 728px/768px */
@@ -886,7 +886,7 @@ h1.menu-toggle:after {
 		width: 94.79166%; /* 728px/768px */
 		padding: 20px 2.60416%; /* 20px/768px */
 	}
-	
+
 	/*---------- Post: content ----------*/
 	.entry-content p, .entry-summary p {
 		font-size: 1.4em;
@@ -946,15 +946,15 @@ h1.menu-toggle:after {
 	p.comment-form-author,
 	p.comment-form-email,
 	p.comment-form-url {clear: left; float: left; margin: 0 20px 0 0;}
-	
+
 	p.comment-form-comment {clear: left;}
-	
+
 	p.form-submit {clear: both;}
-	
+
 	#comments #respond #commentform .form-submit input#submit {
 	}
 	#comments #respond #commentform label {/*font-size: 1.3em; font-weight: bold;*/}
-	
+
 	/*---------- Post: vote ----------*/
 	.entry-vote {
 		border-top:1px solid #ccc;
@@ -978,13 +978,13 @@ h1.menu-toggle:after {
 		margin:0;
 	}
 
-	.entry-vote .wpv_vote_icon, 
+	.entry-vote .wpv_vote_icon,
 	.entry-vote .wpv_voted_icon {
 		background-image:none !important;
 		font-family: 'FontAwesome';
 		font-size:1.2em; /*18px*/
 	}
-	.entry-vote .wpv_vote_icon:before, 
+	.entry-vote .wpv_vote_icon:before,
 	.entry-vote .wpv_voted_icon:before  {
 		content: "\f087";
 		line-height:;
@@ -1029,13 +1029,13 @@ h1.menu-toggle:after {
 		color:#000 !important;
 	}
 
-	.entry-meta .wpv_vote_icon, 
+	.entry-meta .wpv_vote_icon,
 	.entry-meta .wpv_voted_icon {
 		background-image:none !important;
 		font-family: 'FontAwesome';
 		font-size:1.385em; /*18px*/
 	}
-	.entry-meta .wpv_vote_icon:before, 
+	.entry-meta .wpv_vote_icon:before,
 	.entry-meta .wpv_voted_icon:before  {
 		content: "\f087";
 		line-height:1em;
@@ -1048,30 +1048,8 @@ h1.menu-toggle:after {
 	.entry-meta .wpv_voted_icon:before {
 		color:#000;
 	}
-	
-	/*---------- Sidebar: Votes ----------*/
 
-	#sidebar aside#votes div.widget-box p {font-size: 1.3em; clear: both; padding: 20px 0;}
-	#sidebar aside#votes div.widget-box ul {float: left; margin: 10px 0 0 0;}
-	#sidebar aside#votes div.widget-box ul li {
-		float: left;
-		margin: 0 0 10px 0;
-		padding: 0 0 10px 0;
-		font-size: 1.3em;
-		line-height: 1.462em; /*19px*/
-		color: #333;
-		border-bottom:1px solid #ccc;
-	}
-	#sidebar aside#votes div.widget-box ul li a {font-size: 1em; color: #1985B5;}
-	#sidebar aside#votes div.widget-box ul li .date {color: #666;font-size:0.857em;}
-	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote {
-		display:inline;
-	}
-	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote .wpv_votebtncon {
-		display:none;
-	}
-	
-	
+
 }
 
 
@@ -1080,7 +1058,7 @@ h1.menu-toggle:after {
 ----------------------------------------*/
 
 @media screen and (min-width: 768px) {
-	/*---------- site ----------*/	
+	/*---------- site ----------*/
 	#primary {
 		float: left;
 		clear: none;
@@ -1090,7 +1068,7 @@ h1.menu-toggle:after {
 	#sidebar {
 		float: right;
 		clear: none;
-		margin: 20px 0 0 0; 
+		margin: 20px 0 0 0;
 		max-width: 250px;
 		width: 32.5520833%; /* 250px/768px */
 	}
@@ -1109,7 +1087,7 @@ h1.menu-toggle:after {
 		padding: 20px 1.66666667%; /* 20px/1200px */
 		width: 96.6666667%; /* 1160px/1200px */
 	}
-	/*---------- site ----------*/	
+	/*---------- site ----------*/
 	#primary {
 		float: left;
 		clear: none;
@@ -1123,16 +1101,16 @@ h1.menu-toggle:after {
 		max-width: 400px;
 		width: 33.333333%; /* 400px/1200px */
 	}
-	/*---------- posts ----------*/	
+	/*---------- posts ----------*/
 	article {
 		float: left;
 		margin: 0;
 		padding: 20px 2.85714286%; /* 20px/700px */
 		width: 94.2857143%; /* 660px/700px */
 	}
-	
+
 	/*---------- Author page ----------*/
-	#archive .page-header, 
+	#archive .page-header,
 	#archive #author-info {
 	  float: left;
 	  margin: 0;
@@ -1201,12 +1179,35 @@ h1.menu-toggle:after {
 	}
 	#sidebar aside#twitter div.widget-box ul li a {font-size: 1em; color: #1985B5;}
 	#sidebar aside#twitter div.widget-box ul li a.timestamp {color: #666;font-size:0.857em;}
-	
-	
 
-	
+
+	/*---------- Sidebar: Votes ----------*/
+
+	#sidebar aside#votes div.widget-box p {font-size: 1.3em; clear: both; padding: 20px 0;}
+	#sidebar aside#votes div.widget-box ul,
+	#sidebar aside.widget_recent_comments ul#recentcomments {float: left; margin: 10px 0 0 0;}
+	#sidebar aside#votes div.widget-box ul li,
+	#sidebar aside.widget_recent_comments ul#recentcomments li {
+		float: left;
+		margin: 0 0 10px 0;
+		padding: 0 0 10px 0;
+		font-size: 1.3em;
+		line-height: 1.462em; /*19px*/
+		color: #333;
+		border-bottom:1px solid #ccc;
+	}
+	#sidebar aside#votes div.widget-box ul li a,
+	#sidebar aside.widget_recent_comments ul#recentcomments li a {font-size: 1em; color: #1985B5;}
+	#sidebar aside#votes div.widget-box ul li .date {color: #666;font-size:0.857em;}
+	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote {
+		display:inline;
+	}
+	#sidebar aside#votes div.widget-box ul li .thumbs-up .wpv_postvote .wpv_votebtncon {
+		display:none;
+	}
+
 	/*---------- Submit ----------*/
-	#submit input[type=text], 
+	#submit input[type=text],
 	#submit input.input-text {
 		width:400px;
 	}
