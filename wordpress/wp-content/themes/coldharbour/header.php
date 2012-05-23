@@ -8,7 +8,11 @@
  * @since coldharbour 1.0
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<!--[if lt IE 7 ]> <html class="ie6" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" <?php language_attributes(); ?>> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
@@ -56,7 +60,8 @@
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
-			<h1 class="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h1 class="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			  </h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 

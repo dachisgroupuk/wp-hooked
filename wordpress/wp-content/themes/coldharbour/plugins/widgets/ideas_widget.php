@@ -1,13 +1,13 @@
 <?php
 
-class Sharing_Widget extends WP_Widget {
+class Ideas_Widget extends WP_Widget {
     /** constructor */
-	  function Sharing_Widget() {
+	  function Ideas_Widget() {
 	    parent::WP_Widget(
 	      false, 
-	      $name = 'Coldharbour - Sharing widget', 
+	      $name = 'Coldharbour - Ideas widget', 
 	      $widget_options = array(
-	        'description' => 'Sharing and liking content widget',
+	        'description' => 'Ideas widget',
 	      )
 	    );	
 	  }
@@ -18,19 +18,45 @@ class Sharing_Widget extends WP_Widget {
 	  /** @see WP_Widget::widget */
 	  function widget($args, $instance) {		
 	    extract( $args );
-	    $title = apply_filters('widget_title', $instance['title']);
+      // $title = apply_filters('widget_title', $instance['title']);
 	    /**  begin widget html */
 
 	    echo $before_widget;
 
 				?>
-				<p class="notice">The content on this website is for Investment Professionals only and should be shared responsibly</p>
-				<ul id="sharing">					
-			    		<li class="linkdin"><a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(the_title($echo=false)); ?>&source=<?php echo urlencode("http://www.bondvigilantes.co.uk"); ?>">LinkedIn</a></li>
-  						<li class="twitter"><a href="http://twitter.com/home?status=Currently reading <?php the_permalink() ?>">Twitter</a></li>
-  						<li class="facebook"><a href="<?php the_permalink() ?>">Facebook</a></li>
-  						<li class="delicious"><a href="http://del.icio.us/post?url=<?php the_permalink() ?>&title=<?php the_title(); ?>">Del.icio.us</a></li>				
-				</ul>
+			    <div class="widget-box">
+			      <h3>Latest Ideas</h3>
+			      <ul>
+    					<?php
+              /*Enables pagination on pages*/
+                 query_posts( array( 
+                'post_type' => 'ideas', 
+                'status' => 'future',
+              ) );
+              // The Loop
+              while ( have_posts() ) : the_post();
+              ?>
+              <li>
+                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'coldharbour' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+                <span class="date">
+                  <?php coldharbour_posted_on(); ?>
+                </span>
+                <span class="thumbs-up">
+                  <i class="icon-thumbs-up"></i>
+              	  <?php
+              	  if(function_exists('wpv_voting_display_vote'))
+              	   wpv_voting_display_vote(get_the_ID());
+              	  ?>
+              	</span>
+              	<?php global $post; ?> 
+              	<?php echo b1_get_post_rank($post) ?>
+              </li>
+    			  <?php endwhile; 
+    			  // Reset Query
+            wp_reset_query();
+    			  ?>
+    			  </ul>
+    			</div>			
 				<?php
 	    
 	    echo $after_widget; 
