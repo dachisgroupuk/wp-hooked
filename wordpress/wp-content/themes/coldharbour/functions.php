@@ -282,6 +282,17 @@ add_action( 'admin_init', 'remove_author_rights' );
 function remove_author_rights(){
   global $wp_roles;
 
+  $wp_roles->add_cap('administrator', 'publish_ideas');
+  $wp_roles->add_cap('administrator', 'edit_published_ideas');
+  $wp_roles->add_cap('administrator', 'edit_others_ideas');
+  $wp_roles->add_cap('administrator', 'delete_ideas');
+  $wp_roles->add_cap('administrator', 'delete_private_ideas');
+  $wp_roles->add_cap('administrator', 'delete_published_ideas');
+  $wp_roles->add_cap('administrator', 'delete_others_ideas');
+  $wp_roles->add_cap('administrator', 'edit_private_ideas');
+  $wp_roles->add_cap('administrator', 'edit_published_ideas');
+  $wp_roles->add_cap('administrator', 'delete_published_posts');
+
   $wp_roles->remove_cap('author', 'publish_ideas');
   $wp_roles->remove_cap('author', 'edit_published_ideas');
   $wp_roles->remove_cap('author', 'edit_others_ideas');

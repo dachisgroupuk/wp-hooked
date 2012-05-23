@@ -8,7 +8,7 @@
  * Date: 11.20.11
  * Author URI: http://me.redradar.net/
  */
- 
+
 /*
 TODO
 	Focus in Chrome
@@ -26,34 +26,34 @@ class PostFromSite {
 	protected $popup = true;
 	protected $cat = '';
 	protected $form_id = 0;
-	
+
 	public function __construct($id = 0, $linktext = '', $popup = true, $cat = '') {
 		$this->form_id = $id;
 		$this->linktext = $linktext;
 		$this->popup = $popup;
 		$this->cat = $cat;
-	
+
 		register_activation_hook( __FILE__, array($this,'install') );
-		
+
 		// add pfs_domain for translation
 		load_plugin_textdomain('pfs_domain');
-		
+
 		// add pfs_options group & apply validation filter, add settings fields & section
 		add_action('admin_init', array($this, 'admin_init') );
-		
+
 		// add js & css
 		add_action( 'get_header', array($this,'includes') );
-		
+
 		// add admin page & options
 		add_action( 'admin_menu', array($this, 'show_settings') );
-		
+
 		// add shortcode support
 		add_shortcode( 'post-from-site', array($this, 'shortcode') );
-		
+
 		// add admin menu item. Probably not going to happen.
 		//add_action( 'admin_bar_menu', array($this, 'add_admin_link'), 1000 );
 	}
-	
+
 	public function install(){
 		//nothing here yet, as there's really nothing to 'install' that isn't covered by __construct
 	}
@@ -63,18 +63,18 @@ class PostFromSite {
 	 */
 	public function show_settings() {
 	    add_options_page('Post From Site', 'Post From Site', 'manage_options', 'pfs', array($this, 'settings') );
-	    
+
 	    if (!get_option("pfs_options")) {
 	    	$options= array( 0 => array() );
 	    	$options[0]['default_author'] = '';
 	        $options[0]['allow_image'] = true;
 	        $options[0]['wp_image_size'] = 'medium';
-	        
+
 	        $options[0]['post_status'] = 'publish';
 	        $options[0]['post_type'] = 'post';
 	        $options[0]['comment_status'] = 'open';
 	        $options[0]['taxonomy'] = array();
-	        
+
 	        $options[0]['enable_captcha'] = false;
 	        $options[0]['allow_anon'] = false;
 	        $options['recaptcha_public_key'] = '';
@@ -82,24 +82,24 @@ class PostFromSite {
 	        add_option ("pfs_options", $options) ;
 	    }
 	}
-	
+
 	/**
 	 * What to display in the admin menu
 	 */
 	public function settings() { ?>
 		<div class="wrap pfs">
 			<h2><?php _e('Post From Site Settings','pfs_domain'); ?></h2>
-	
+
 			<form method="post" action="options.php" id="options">
 				<?php settings_fields('pfs_options'); ?>
-				
+
 				<?php do_settings_sections('pfs'); ?>
-				
+
 				<?php submit_button(); ?>
 			</form>
-			
+
 		</div>
-	<?php 
+	<?php
 	}
 
 	function admin_init(){
@@ -116,11 +116,11 @@ class PostFromSite {
 		add_settings_field('pfs_post_type', 'Post type:<br /><small><a href="http://codex.wordpress.org/Custom_Post_Types">Custom Post Types</a> supported!</small>', array($this, 'setting_post_type'), 'pfs', 'pfs_post');
 		add_settings_field('pfs_comment_status', 'Comment status:', array($this, 'setting_comment_status'), 'pfs', 'pfs_post');
 		add_settings_field('pfs_taxonomy', 'Allowed taxonomies:', array($this, 'setting_taxonomy'), 'pfs', 'pfs_post');
-						
+
 		add_settings_section('pfs_image', 'Image Upload Settings', array($this, 'setting_section_image'), 'pfs');
 		add_settings_field('pfs_allow_image', 'Allow users to upload an image?', array($this, 'setting_allow_image'), 'pfs', 'pfs_image');
 		add_settings_field('pfs_wp_image_size', 'Image size setting to use:', array($this, 'setting_wp_image_size'), 'pfs', 'pfs_image');
-		
+
 
 	}
 	function setting_section_users() {
@@ -182,7 +182,7 @@ class PostFromSite {
 		$options = get_option('pfs_options');
 		$options = $options[0];
 		echo "<select id='pfs_post_type' name='pfs_options[0][post_type]'>";
-        $post_types = get_post_types(array('public'=>true),'object'); 
+        $post_types = get_post_types(array('public'=>true),'object');
         foreach ($post_types as $post_type ) {
 	        if ("attachment" == $post_type->name) continue;
             if ($post_type->name == $options['post_type']) {
@@ -208,7 +208,7 @@ class PostFromSite {
 	function setting_taxonomy() {
 		$options = get_option('pfs_options');
 		$options = $options[0];
-		$taxonomies = get_taxonomies(array( 'public' => true ),'object'); 
+		$taxonomies = get_taxonomies(array( 'public' => true ),'object');
 		echo "<ul>";
 		foreach ($taxonomies as $taxonomy ) {
 		  echo '<li><label><input type="checkbox" name="pfs_options[0][taxonomy][]" value="'.$taxonomy->name.'" ';
@@ -244,7 +244,7 @@ class PostFromSite {
 	}
 
 	/**
-	 * Sanitize and validate input. 
+	 * Sanitize and validate input.
 	 * @param array $input an array to sanitize
 	 * @return array a valid array.
 	 */
@@ -275,7 +275,7 @@ class PostFromSite {
 				    	}
 				    }
 				}
-		    	
+
 			    $input[$i]['allow_image'] = array_key_exists('allow_image', $val);
 			    $input[$i]['wp_image_size'] = (in_array($val['wp_image_size'],get_intermediate_image_sizes())) ? $val['wp_image_size'] : 'medium';
 		    }
@@ -313,7 +313,7 @@ class PostFromSite {
 	}
 
 	/**
-	 * Add a link to show the form from the admin bar	 
+	 * Add a link to show the form from the admin bar
 	function add_admin_link() {
 		global $wp_admin_bar, $wpdb;
 		if ( !is_super_admin() || !is_admin_bar_showing() )
@@ -328,7 +328,7 @@ class PostFromSite {
 	/**
 	 * Creates link and postbox (initially hidden with display:none), calls pfs_submit on form-submission. Echos the form.
 	 * @param string $cat Category ID for posting specifically to one category. Default is '', which allows user to choose from allowed categories.
-	 * @param string $linktext Link text for post link. Default is set in admin settings, any text here will override that. 
+	 * @param string $linktext Link text for post link. Default is set in admin settings, any text here will override that.
 	 * @param bool $popup Whether the box should be a 'modal-style' popup or always display
 	 */
 	public function form(){
@@ -338,7 +338,7 @@ class PostFromSite {
 	/**
 	 * Creates link and postbox (initially hidden with display:none), calls pfs_submit on form-submission. Returns the form.
 	 * @param string $cat Category ID for posting specifically to one category. Default is '', which allows user to choose from allowed categories.
-	 * @param string $linktext Link text for post link. Default is set in admin settings, any text here will override that. 
+	 * @param string $linktext Link text for post link. Default is set in admin settings, any text here will override that.
 	 * @param bool $popup Whether the box should be a 'modal-style' popup or always display
 	 */
 	public function get_form(){
@@ -348,17 +348,17 @@ class PostFromSite {
 		$id = $this->form_id;
 		$pfs_options = get_option('pfs_options');
 		$options = $pfs_options[0];
-		
+
 		if (''==$linktext) $linktext = apply_filters( 'pfs_default_link_text', __('Click to post.','pfs_domain') );
 		$idtext = $cat.sanitize_html_class($linktext);
 
-		// Javascript displays the box when the link is clicked 
+		// Javascript displays the box when the link is clicked
 		$out = ($popup) ? "<a href='#' class='pfs-post-link' id='$idtext-link'>$linktext</a>" : '';
 		$out .= "<div id='pfs-post-box-$idtext' ";
 		$out .= ($popup) ? "style='display:none' class='pfs-post-box pfs_postbox'" : "class='pfs-post-box pfs_postform'";
 		$out .= ">\n";
 		$out .= ($popup) ? "<div class='closex'>&times;</div>\n" : '';
-		if (current_user_can('publish_posts') || $options['allow_anon']){
+		if (current_user_can('add_ideas') || $options['allow_anon']){
 			$out .= "<div id='pfs-alert' style='display:none;'></div> \n";
 			$out .= apply_filters( 'pfs_before_form', '', $idtext );
 			$out .= "<form class='pfs' id='pfs_form' method='post' action='".plugins_url("pfs-submit.php",__FILE__). "' enctype='multipart/form-data'>\n";
@@ -376,7 +376,7 @@ class PostFromSite {
 						$out .= $this->get_taxonomy_list($tax);
 					//}
 				}
-			}		
+			}
 			if ($options['allow_image']) {
 				$out .= "<label for='pfs_imgdiv$idtext'>". __('Image:','pfs_domain') ."</label>";
 				/*$out .= "<script>function ".$idtext."pfs_auto_browse(){ inputs = document.getElementsByName(\"".$idtext."-image[]\"); inputs[inputs.length-1].click(); }</script>";
@@ -407,7 +407,7 @@ class PostFromSite {
 
 	/**
 	 * return the categories
-	 * @param string $excluded Categories which are excluded 
+	 * @param string $excluded Categories which are excluded
 	 */
 	public function get_taxonomy_list( $taxonomy ){
 		$terms = get_terms($taxonomy, array(
