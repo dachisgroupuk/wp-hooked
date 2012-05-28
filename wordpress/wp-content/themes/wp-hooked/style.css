@@ -1,0 +1,12 @@
+/*
+Theme Name:     WP-Hooked
+Theme URI:      http://wp-hooked.com/
+Description:    The Wp-hooked theme based on the The Dachis Group Vinur theme and the Coldharbour CSS
+Author:         Headshift
+Author URI:     http://dachisgroup.com/
+Template:       vinur
+Version:        0.1.0
+*/
+@import url("../vinur/style.css");
+
+@import url("../vinur/rtl.css");
