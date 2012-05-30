@@ -1,0 +1,9 @@
+@import url("../../vinur/stylesheets/font-awesome.css");
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../../vinur/fonts/fontawesome-webfont.eot');
+    src: url('../../vinur/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../../vinur/fonts/fontawesome-webfont.woff') format('woff'), url('../../vinur/fonts/fontawesome-webfont.ttf') format('truetype'), url('../../vinur/fonts/fontawesome-webfont.svgz#FontAwesomeRegular') format('svg'), url('../../vinur/fonts/fontawesome-webfont.svg#FontAwesomeRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

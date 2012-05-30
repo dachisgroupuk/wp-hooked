@@ -24,12 +24,12 @@
   MBP.scaleFix();
   MBP.hideUrlBar();
 </script>
-
+<?php
+/*
 <script type="text/javascript">
-
- Êvar _gaq = _gaq || [];
- Ê_gaq.push(['_setAccount', 'UA-2962934-13']);
- Ê_gaq.push(['_trackPageview']);
+    Êvar _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2962934-13']);
+    _gaq.push(['_trackPageview']);
 
  Ê(function() {
  Ê Êvar ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -38,5 +38,7 @@
  Ê})();
 
 </script>
+*/
+?>
 </body>
 </html>

@@ -10,9 +10,9 @@
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'vinur' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 		<?php if ( 'ideas' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php vinur_posted_on(); ?>
-		</div><!-- .entry-meta -->
+            <div class="entry-meta">
+                <?php vinur_posted_on(); ?>
+            </div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
