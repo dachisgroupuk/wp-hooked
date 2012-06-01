@@ -166,9 +166,14 @@ footer.entry-meta {
 		color:#000;
 	}
 
-	#sidebar aside.widget_ideas_widget div.widget-box p {font-size: 1.3em; clear: both; padding: 20px 0;}
-	#sidebar aside.widget_ideas_widget div.widget-box ul {float: left; margin: 10px 0 0 0;}
-	#sidebar aside.widget_ideas_widget div.widget-box ul li {
+	#sidebar aside.widget_ideas_widget div.widget-box p,
+	#sidebar aside.widget_dgi_widget div.widget-box p {font-size: 1.3em; clear: both; padding: 20px 0;}
+	
+	#sidebar aside.widget_ideas_widget div.widget-box ul,
+	#sidebar aside.widget_dgi_widget div.widget-box ul {float: left; margin: 10px 0 0 0;}
+	
+	#sidebar aside.widget_ideas_widget div.widget-box ul li,
+	#sidebar aside.widget_dgi_widget div.widget-box ul li {
 		float: left;
 		margin: 0 0 10px 0;
 		padding: 0 0 10px 0;
