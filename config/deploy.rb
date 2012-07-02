@@ -5,6 +5,7 @@ set :stages, %w(production)
 set :default_stage, 'production'
 set :application, "wp-hooked.com"
 set :repository,  "git@github.com:headshift/wp-hooked.git"
+set :git_enable_submodules, 1
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
