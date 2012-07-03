@@ -1,3 +1,6 @@
 [submodule "wordpress/wp-content/themes/vinur"]
 	path = wordpress/wp-content/themes/vinur
 	url = git@github.com:headshift/vinur.git
+[submodule "wordpress/wp-content/plugins/meetuplogin"]
+	path = wordpress/wp-content/plugins/meetuplogin
+	url = git://github.com/ryelle/MeetupLogin.git
