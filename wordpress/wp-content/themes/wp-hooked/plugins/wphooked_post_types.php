@@ -47,7 +47,7 @@ function wphooked_post_types() {
       'menu_position' => 4,
       'public' => true,
       'rewrite' => array( 'slug' => 'ideas', 'with_front' => true ),
-      'register_meta_box_cb' => 'add_property_metaboxes',
+      
     )
   );
 
