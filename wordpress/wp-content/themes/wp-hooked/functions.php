@@ -104,30 +104,30 @@ function remove_author_rights(){
   $wp_roles->add_cap('administrator', 'edit_published_ideas');
   $wp_roles->add_cap('administrator', 'delete_published_posts');
 
-  $wp_roles->remove_cap('author', 'publish_ideas');
-  $wp_roles->remove_cap('author', 'edit_published_ideas');
-  $wp_roles->remove_cap('author', 'edit_others_ideas');
-  $wp_roles->remove_cap('author', 'delete_ideas');
-  $wp_roles->remove_cap('author', 'delete_private_ideas');
-  $wp_roles->remove_cap('author', 'delete_published_ideas');
-  $wp_roles->remove_cap('author', 'delete_others_ideas');
-  $wp_roles->remove_cap('author', 'edit_private_ideas');
-  $wp_roles->remove_cap('author', 'edit_published_ideas');
-  $wp_roles->remove_cap('author', 'delete_published_posts');
+  //$wp_roles->remove_cap('author', 'publish_ideas');
+  //$wp_roles->remove_cap('author', 'edit_published_ideas');
+  //$wp_roles->remove_cap('author', 'edit_others_ideas');
+  //$wp_roles->remove_cap('author', 'delete_ideas');
+  //$wp_roles->remove_cap('author', 'delete_private_ideas');
+  //$wp_roles->remove_cap('author', 'delete_published_ideas');
+  //$wp_roles->remove_cap('author', 'delete_others_ideas');
+  //$wp_roles->remove_cap('author', 'edit_private_ideas');
+  //$wp_roles->remove_cap('author', 'edit_published_ideas');
+  //$wp_roles->remove_cap('author', 'delete_published_posts');
 
-  $wp_roles->remove_cap('author', 'add_posts');
-  $wp_roles->remove_cap('author', 'edit_posts');
-  $wp_roles->remove_cap('author', 'edit_published_posts');
-  $wp_roles->remove_cap('author', 'delete_posts');
-  $wp_roles->remove_cap('author', 'delete_published_posts');
-  $wp_roles->remove_cap('author', 'edit_published_posts');
-  $wp_roles->remove_cap('author', 'publish_posts');
+  //$wp_roles->remove_cap('author', 'add_posts');
+  //$wp_roles->remove_cap('author', 'edit_posts');
+  //$wp_roles->remove_cap('author', 'edit_published_posts');
+  //$wp_roles->remove_cap('author', 'delete_posts');
+  //$wp_roles->remove_cap('author', 'delete_published_posts');
+  //$wp_roles->remove_cap('author', 'edit_published_posts');
+  //$wp_roles->remove_cap('author', 'publish_posts');
 
-  $wp_roles->remove_cap('author', 'add_media');
-  $wp_roles->remove_cap('author', 'edit_media');
-  $wp_roles->remove_cap('author', 'delete_media');
-  $wp_roles->remove_cap('author', 'published_media');
-  $wp_roles->remove_cap('author', 'upload_files');
+  //$wp_roles->remove_cap('author', 'add_media');
+  //$wp_roles->remove_cap('author', 'edit_media');
+  //$wp_roles->remove_cap('author', 'delete_media');
+  //$wp_roles->remove_cap('author', 'published_media');
+  //$wp_roles->remove_cap('author', 'upload_files');
 
 }
 
